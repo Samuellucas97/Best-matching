@@ -37,10 +37,12 @@ public class BestMatchingTest {
 	public static Collection<Object[]> buildData() {
 		return Arrays.asList(new Object[][] {
 
-			{ "gato", "gato", 0 },
+			{ "gato", "gato", 0 },					//-> Best case	
 			{ "gato", "sapato", 3 },
-			{ "mel", "meu", 1 }
-
+			{ "mel", "meu", 1 },
+			{ "samuel", "daniel", 3 },
+			{ "rei", "abelha", 5 }					//-> Worst case
+			
 		});
 	}
 	

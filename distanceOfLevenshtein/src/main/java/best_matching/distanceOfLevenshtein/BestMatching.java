@@ -17,7 +17,7 @@ public class BestMatching {
 	//-> Methods  **PRIVATES**
 		
 	private Integer indication(Integer i, Integer j) {
-		if ( a.charAt(i-1) == b.charAt(j-1) )
+		if ( a.charAt(i-1) != b.charAt(j-1) )
 			return 1;
 		
 		return 0;
