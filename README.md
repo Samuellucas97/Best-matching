@@ -14,9 +14,10 @@ This folder contains the implementation of the Big Data algorithm, Levenshtein d
 
 You need the following programs to use this repository:
 
- - Eclipse
  - Maven
  - JDK 11
+
+_This project was loaded on Eclipse using above configurations_
 
 ## About the algorithm
 
