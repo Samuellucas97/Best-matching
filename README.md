@@ -25,7 +25,7 @@ In resume, the Levenshtein distance is a string metric for measuring the differe
 
 ## Author 
 
-| Name: | Github: | Email: |  
-| ---------- | ------------- | ------------- |
-|`Samuel Lucas de Moura Ferino` 	| https://github.com/Samuellucas97 |_samuellucas97@ufrn.edu.br_  
+| Name: | Email: |  
+| ---------- | ------------- | 
+|`Samuel Lucas de Moura Ferino` 	| _samuellucas97@ufrn.edu.br_  
 
