@@ -1,5 +1,6 @@
 package best_matching.distanceOfLevenshtein;
 
+import java.util.ArrayList;
 
 /**
  * Contains aplication of Levenshtein distance algorithm with the use of vocabulary 
@@ -18,18 +19,18 @@ public class BestMatching {
 		levDist = new LevenshteinDistance();
 	}
 	
-	public String calculateWordMinumLevenshteinDistance(String a, String[] vocabulary) {
+	public String calculateWordMinumLevenshteinDistance(String a, ArrayList<String> vocabulary) {
 		
 		Integer minumDistanceOfLevenshtein = -2;
 		Integer actualDistance = -1;
 		
 		String wordMinumDistance = "";
 		
-		for (Integer i = 0; i < vocabulary.length; ++i) {
-			actualDistance = levDist.calculateLevenshteinDistance(a, vocabulary[i]);
+		for (Integer i = 0; i < vocabulary.size(); ++i) {
+			actualDistance = levDist.calculateLevenshteinDistance(a, vocabulary.get(i));
 			
 			if ( minumDistanceOfLevenshtein < actualDistance ) {
-				wordMinumDistance = vocabulary[i];
+				wordMinumDistance = vocabulary.get(i);
 				minumDistanceOfLevenshtein = actualDistance;
 			}
 		}

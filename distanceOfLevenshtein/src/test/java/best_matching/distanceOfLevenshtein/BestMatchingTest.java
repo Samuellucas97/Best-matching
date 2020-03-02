@@ -9,6 +9,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -22,7 +23,7 @@ public class BestMatchingTest {
 	public String word;
 	
 	@Parameter(1)
-	public String[] vocabulary;
+	public ArrayList<String> vocabulary;
 	
 	@Parameter(2)
 	public String expectedWord;
