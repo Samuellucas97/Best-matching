@@ -1,5 +1,8 @@
 package best_matching.distanceOfLevenshtein;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Implementation of Big Data algorithm, distance of Levenshtein
  * @author Samuel Lucas
@@ -12,7 +15,12 @@ public class BestMatching {
 	private String a = "";
 	private String b = "";
 	
-	public BestMatching( ) { /** Empty **/ }
+	private ArrayList<String> vocabulary = new ArrayList<String>();
+	
+	
+	public BestMatching( ArrayList<String> vocabulary) { 
+		this.vocabulary = vocabulary.clone();	
+	}
 	
 	//-> Methods  **PRIVATES**
 		
@@ -42,5 +50,19 @@ public class BestMatching {
 		this.b = b;
 		
 		return lev( a.length(), b.length() );
+	}
+	
+	public Integer calculateMinumDistanceOfLevenshtein(String a) {
+		Integer minumDistanceOfLevenshtein = -2;
+		Integer actualDistance = -1;
+		for (Integer i = 0; i < this.vocabulary.lenght(); ++i) {
+			actualDistance = calculateDistanceOfLevenshtein(a, this.vocabulary.indexOf(i));
+			
+			if ( minumDistanceOfLevenshtein < actualDistance ) {
+				minumDistanceOfLevenshtein = actualDistance;
+			}
+		}
+		
+		return minumDistanceOfLevenshtein;
 	}
 }
