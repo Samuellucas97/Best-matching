@@ -16,44 +16,48 @@ import java.util.Collection;
 @RunWith(Parameterized.class)
 public class BestMatchingTest {
 
-	private static BestMatching bestMatching;
-	
+	private static BestMatching bestMatch;
+
 	@Parameter(0)
-	public String wordOne;
+	public String word;
 	
 	@Parameter(1)
-	public String wordTwo;
-
+	public String[] vocabulary;
+	
 	@Parameter(2)
-	public Integer expectedDistanceOfLevenshtein;
-
+	public String expectedWord;
+	
+	
 	@BeforeClass
 	public static void setUp() {
-		// / Setting up environment
-		bestMatching  = new BestMatching();
+		//-> Setting up environment
+		bestMatch = new BestMatching();
 	}
+	
 
 	@Parameters(name = "Run {index}: wordOne={0}, wordTwo={1} ")
 	public static Collection<Object[]> buildData() {
+		
 		return Arrays.asList(new Object[][] {
 
-			{ "gato", "gato", 0 },					//-> Best case	
-			{ "gato", "sapato", 3 },
-			{ "mel", "meu", 1 },
-			{ "samuel", "daniel", 3 },
-			{ "rei", "abelha", 5 }					//-> Worst case
+			{ "gato", Arrays.asList( new String[]{"gato"} ), "gato"},					//-> Best case	
+			{ "gato", Arrays.asList( new String[]{"sapato","gato"} ), "gato"},
+			{ "mel",  Arrays.asList( new String[]{"mala","miau"} ), "mala"},	
+			{ "gato", Arrays.asList( new String[]{"gt","goto"} ), "goto"},
+			{ "mel",  Arrays.asList( new String[]{"raio","lã"} ), "lã"}
 			
 		});
 	}
-	
+
 	
 	@Test
-	public void testShouldCalculateDistanceOfLevenshtein() {
+	public void testShouldCalculateMinumLevenshteinDistance() {
 		
 		//-> Action
-		Integer distanceOfLevenshtein = bestMatching.calculateDistanceOfLevenshtein(wordOne, wordTwo);
+		String  wordMinumLevenshteinDistance = bestMatch.calculateWordMinumLevenshteinDistance(word, vocabulary);
 		
 		//-> Verification
-		assertEquals(expectedDistanceOfLevenshtein, distanceOfLevenshtein);	
+		assertEquals(expectedWord, wordMinumLevenshteinDistance);
 	}
+
 }
