@@ -9,9 +9,9 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 
 @RunWith(Parameterized.class)
@@ -23,11 +23,10 @@ public class BestMatchingTest {
 	public String word;
 	
 	@Parameter(1)
-	public ArrayList<String> vocabulary;
+	public List<String> vocabulary;
 	
 	@Parameter(2)
 	public String expectedWord;
-	
 	
 	@BeforeClass
 	public static void setUp() {
@@ -41,11 +40,11 @@ public class BestMatchingTest {
 		
 		return Arrays.asList(new Object[][] {
 
-			{ "gato", Arrays.asList( new String[]{"gato"} ), "gato"},					//-> Best case	
-			{ "gato", Arrays.asList( new String[]{"sapato","gato"} ), "gato"},
-			{ "mel",  Arrays.asList( new String[]{"mala","miau"} ), "mala"},	
-			{ "gato", Arrays.asList( new String[]{"gt","goto"} ), "goto"},
-			{ "mel",  Arrays.asList( new String[]{"raio","lã"} ), "lã"}
+			{ "gato", Arrays.asList( "gato" ), "gato"},					//-> Best case	
+			{ "gato", Arrays.asList( "sapato","gato" ), "gato"},
+			{ "mel",  Arrays.asList( "mala","miau" ), "mala"},	
+			{ "gato", Arrays.asList( "gt","goto" ), "goto"},
+			{ "mel",  Arrays.asList( "raio","lã" ), "lã"}
 			
 		});
 	}
