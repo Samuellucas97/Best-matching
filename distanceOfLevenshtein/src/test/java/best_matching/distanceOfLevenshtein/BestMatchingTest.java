@@ -34,22 +34,21 @@ public class BestMatchingTest {
 		bestMatch = new BestMatching();
 	}
 	
-
 	@Parameters(name = "Run {index}: wordOne={0}, wordTwo={1} ")
 	public static Collection<Object[]> buildData() {
 		
 		return Arrays.asList(new Object[][] {
 
 			{ "gato", Arrays.asList( "gato" ), "gato"},					//-> Best case	
-			{ "gato", Arrays.asList( "sapato","gato" ), "gato"},
-			{ "mel",  Arrays.asList( "mala","miau" ), "mala"},	
+			{ "gato", Arrays.asList( "sapato", "gato" ), "gato"},
+			{ "gato", Arrays.asList( "gato", "sapato" ), "gato"},
+			{ "mel",  Arrays.asList( "mela" ), "mela"},	
 			{ "gato", Arrays.asList( "gt","goto" ), "goto"},
 			{ "mel",  Arrays.asList( "raio","lã" ), "lã"}
 			
 		});
 	}
 
-	
 	@Test
 	public void testShouldCalculateMinumLevenshteinDistance() {
 		
@@ -59,5 +58,4 @@ public class BestMatchingTest {
 		//-> Verification
 		assertEquals(expectedWord, wordMinumLevenshteinDistance);
 	}
-
 }

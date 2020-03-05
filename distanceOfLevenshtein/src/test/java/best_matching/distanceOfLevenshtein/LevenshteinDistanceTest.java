@@ -37,15 +37,21 @@ public class LevenshteinDistanceTest {
 	public static Collection<Object[]> buildData() {
 		return Arrays.asList(new Object[][] {
 
-			{ "gato", "gato", 0 },					//-> Best case	
-			{ "gato", "sapato", 3 },
-			{ "mel", "meu", 1 },
+			{ "gato", "gato", 0 },					//-> Same word
+			{ "gato", "sapato", 3 },				//-> Different word: lenght(Left word) < lenght(Right word) 
+			{ "mel", "meu", 1 },					//-> Different word: lenght(Left word) == lenght(Right word)
+			{ "gato", "gt", 2 },					//-> Different word: lenght(Left word) > lenght(Right word)
+			
+			
+													//-> CASES OTHERS 
+			{ "mel", "mela", 1 },
+			{ "gato", "gt", 2 },
+			{ "gt", "gato", 2 },
 			{ "samuel", "daniel", 3 },
 			{ "rei", "abelha", 5 }					//-> Worst case
 			
 		});
 	}
-	
 	
 	@Test
 	public void testShouldCalculateDistanceOfLevenshtein() {

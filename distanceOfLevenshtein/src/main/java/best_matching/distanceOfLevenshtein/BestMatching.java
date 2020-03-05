@@ -21,18 +21,26 @@ public class BestMatching {
 	
 	public String calculateWordMinumLevenshteinDistance(String a, List<String> vocabulary) {
 		
-		Integer minumDistanceOfLevenshtein = -2;
-		Integer actualDistance = -1;
+		Integer minumDistanceOfLevenshtein = -1;
+		Integer actualDistance = 0;
 		
 		String wordMinumDistance = "";
 		
 		for (Integer i = 0; i < vocabulary.size(); ++i) {
 			actualDistance = levDist.calculateLevenshteinDistance(a, vocabulary.get(i));
 			
-			if ( minumDistanceOfLevenshtein < actualDistance ) {
-				wordMinumDistance = vocabulary.get(i);
+			if ( i == 0 ) {
+				wordMinumDistance = vocabulary.get(0);
 				minumDistanceOfLevenshtein = actualDistance;
+			
 			}
+			else {
+				if ( minumDistanceOfLevenshtein > actualDistance ) {
+					wordMinumDistance = vocabulary.get(i);
+					minumDistanceOfLevenshtein = actualDistance;
+				}
+			}
+			
 		}
 		
 		return wordMinumDistance;

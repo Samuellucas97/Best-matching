@@ -18,7 +18,7 @@ public class LevenshteinDistance {
 	}
 	
 	//-> Methods  **PRIVATES**
-		
+	
 	private Integer indication(Integer i, Integer j) {
 		
 		if ( this.a.charAt(i-1) != this.b.charAt(j-1) )
